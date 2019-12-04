@@ -1,12 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import CLS from "./components/cls";
+import FNS from "./components/fns";
+import FNSS from "./components/fnsState";
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const eleCLS = document.getElementById('rootCLS');
+const eleFNS = document.getElementById('rootFNS');
+const eleFNSS = document.getElementById('rootFNSS')
+const startCLS = Date.now();
+ReactDOM.render(<CLS />, eleCLS, function () {
+    console.log("CLS-", (Date.now() - startCLS)/1000)
+ });
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ const startFNS = Date.now();
+ ReactDOM.render(<FNS />, eleFNS , function () {
+    console.log("FNS-", (Date.now() - startFNS)/1000)
+ });
+
+ const startFNSS = Date.now();
+ ReactDOM.render(<FNSS />, eleFNSS, function () {
+    console.log("FNSS-",(Date.now() - startFNSS)/1000)
+ });
